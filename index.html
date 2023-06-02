@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Animation</title>
+</head>
+
+<style>
+    *,::before,::after{
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        padding: 4rem 2rem;
+        box-shadow: 0 0 4px rgba(167, 167, 167, 0.584);
+    }
+    .container h2{
+        font-size: 2rem;
+    }
+    .container .form{
+        padding-top: 2rem;
+        text-align: right;
+    }
+    .container .form .form__item{
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    .container .form input{
+        padding: .7rem .5rem;
+        width: 100%;
+        border: 1px solid rgba(128, 128, 128, 0.523);
+        border-radius: .5rem;
+    }
+    .container .form label{
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        background-color: #fff;
+        padding-inline: .2rem;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: .4s ease;
+    }
+    .container .form button[type='submit']{
+        background-color: #0022b8;
+        padding: .7rem 1.5rem;
+        font-size: 1rem;
+        color: white;
+        border-radius: .2rem;
+        border: none;
+        cursor: pointer;
+    }
+    input:is(:focus, :active){
+        outline: 1px solid blue;
+    }
+    .container .form input:focus + label,
+    .container .form input:valid + label{  /*:valid works only when using required in html*/
+        top: 0;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Sign In</h2>
+        <form class="form">
+            <div class="form__item">
+                <input type="email" name="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form__item">
+                <input type="password" name="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
